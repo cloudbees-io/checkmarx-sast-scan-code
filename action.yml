@@ -17,10 +17,10 @@ runs:
   steps:
     - id: run-orchestrator
       name: checkmarx
-      uses: docker://public.ecr.aws/l7o7z1g8/actions/checkmarx-sast-actions:main-1ae3591e936537b4ffdd2cb35d827dcd1e4a5370
+      uses: docker://public.ecr.aws/l7o7z1g8/actions/checkmarx-sast-actions:main-cac37c7bbca1a0527dfc885fb54f3fc57222f6a9
       shell: bash
       env:
-        CONFIG_JSON: '{\"metaInfo\":{\"url\":\"${{ inputs.server-url }}\",\"username\":\"${{ inputs.username }}\",\"password\":\"${{ inputs.password }}\",\"client_secret\":\"${{ inputs.token }}\",\"toolName\":\"checkmarx\"},\"orchestratorInfo\":{\"assetType\":\"CODE\",\"assetIdentifier\":\"${{ cloudbees.scm.repositoryUrl }}\",\"profileIdentifier\":\"${{ cloudbees.scm.branch }}\",\"language\":\"${{ inputs.language }}\"},\"metaInformation\":{\"actor\":\"${{ cloudbees.event.head_commit.author.username }}\",\"commit_id\":\"${{ cloudbees.event.head_commit.id }}\",\"tenent_info\":\"NA\",\"scanner_type\":\"SAST\"}}'
+        CONFIG_JSON: '{\"metaInfo\":{\"url\":\"${{ inputs.server-url }}\",\"username\":\"${{ inputs.username }}\",\"password\":\"${{ inputs.password }}\",\"client_secret\":\"${{ inputs.token }}\",\"toolName\":\"checkmarx\"},\"orchestratorInfo\":{\"assetType\":\"CODE\",\"assetIdentifier\":\"${{ cloudbees.scm.repositoryUrl }}\",\"profileIdentifier\":\"${{ cloudbees.scm.branch }}\",\"language\":\"${{ inputs.language }}\"},\"metaInformation\":{\"actor\":\"SCM-Bot\",\"commit_id\":\"${{ cloudbees.scm.sha }}\",\"tenent_info\":\"NA\",\"scanner_type\":\"SAST\"}}'
         RUN_ID: ${{ cloudbees.run_id }}
         STEP_ID: ${{ step.internal.id }}"
         JOB_ID: ${{ job.id }}
