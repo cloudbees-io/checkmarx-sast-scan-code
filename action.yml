@@ -18,6 +18,7 @@ runs:
     - id: run-orchestrator
       name: checkmarx
       uses: docker://public.ecr.aws/l7o7z1g8/actions/checkmarx-sast-actions:main-2c1c2e5198e9a1ff68207a3dff33248bd27a1cb6
+      uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/checkmarx-sast-actions:main-29539acd4dc8693568b2817a4629055cb087858d 
       shell: bash
       env:
         CONFIG_JSON: '{\"metaInfo\":{\"url\":\"${{ inputs.server-url }}\",\"username\":\"${{ inputs.username }}\",\"password\":\"${{ inputs.password }}\",\"client_secret\":\"${{ inputs.token }}\",\"toolName\":\"checkmarx\"},\"orchestratorInfo\":{\"assetType\":\"CODE\",\"assetIdentifier\":\"${{ cloudbees.scm.repositoryUrl }}\",\"profileIdentifier\":\"${{ cloudbees.scm.branch }}\",\"language\":\"${{ inputs.language }}\"},\"metaInformation\":{\"actor\":\"SCM-Bot\",\"commit_id\":\"${{ cloudbees.scm.sha }}\",\"tenent_info\":\"NA\",\"scanner_type\":\"SAST\"}}'
