@@ -17,7 +17,7 @@ runs:
   steps:
     - id: run-orchestrator
       name: checkmarx
-      uses: docker://public.ecr.aws/l7o7z1g8/actions/checkmarx-sast-actions:main-2c1c2e5198e9a1ff68207a3dff33248bd27a1cb6
+      # uses: docker://public.ecr.aws/l7o7z1g8/actions/checkmarx-sast-actions:main-2c1c2e5198e9a1ff68207a3dff33248bd27a1cb6
       uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/checkmarx-sast-actions:main-29539acd4dc8693568b2817a4629055cb087858d 
       shell: bash
       env:
